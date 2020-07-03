@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +20,8 @@ import javax.sql.DataSource;
  */
 public class Registro extends javax.swing.JFrame {
 
-        private DataSource datasource;
-    
+    private DataSource datasource;
+
     public void CarregaCliente(String sql) {
         try {
             Connection con = new Conectar().getConnection();
@@ -52,40 +53,51 @@ public class Registro extends javax.swing.JFrame {
 
     public void FecharChamado() {
         String Fechado = "Fechado";
-         double id = Double.parseDouble(jTextField1.getText());
-        
-        try( Connection con = new Conectar().getConnection()){
-            PreparedStatement preparedStatement = con.prepareStatement("UPDATE cadastro SET status = ? WHERE ID = ?" );
-            
+        double id = Double.parseDouble(jTextField1.getText());
+
+        try (Connection con = new Conectar().getConnection()) {
+            PreparedStatement preparedStatement = con.prepareStatement("UPDATE cadastro SET status = ? WHERE ID = ?");
+
             preparedStatement.setString(1, Fechado);
             preparedStatement.setDouble(2, id);
             preparedStatement.executeUpdate();
-        }
-       catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
 
         }
-        
-    }
-    
 
-    public void AbrirChamado(){
+    }
+
+    public void AbrirChamado() {
         String Reaberto = "Reaberto";
         double id = Double.parseDouble(jTextField1.getText());
-        try(Connection con = new Conectar().getConnection()){
+        try (Connection con = new Conectar().getConnection()) {
             PreparedStatement preparedStatement = con.prepareStatement("UPDATE cadastro SET status = ? WHERE ID = ?");
             preparedStatement.setString(1, Reaberto);
             preparedStatement.setDouble(2, id);
             preparedStatement.executeUpdate();
-        }
-       catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
 
         }
-        
+
     }
     
-       
+     public void Enviar() {
+        double id = Double.parseDouble(jTextField1.getText());
+        try (Connection con = new Conectar().getConnection()) {
+            PreparedStatement preparedStatement = con.prepareStatement("DELETE FROM cadastro WHERE ID = ?");
+            preparedStatement.setDouble(1, id);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Chamado enviado com sucesso!");
+            
+        } catch (SQLException e) {
+          JOptionPane.showMessageDialog(null, "Erro ao Enviar: " + e);
+
+        }
+
+    }
+    
 
     /**
      * Creates new form Registro
@@ -116,6 +128,7 @@ public class Registro extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jBtnEnviar = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -191,10 +204,19 @@ public class Registro extends javax.swing.JFrame {
             }
         });
 
+        jBtnEnviar.setText("Enviar");
+        jBtnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBtnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnEnviarActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jBtnEnviar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -204,14 +226,16 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(142, 142, 142)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(24, 24, 24)
-                .addComponent(jButton2)
-                .addGap(199, 199, 199))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnEnviar))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +247,8 @@ public class Registro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jBtnEnviar))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -275,25 +300,32 @@ public class Registro extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-       
-            FecharChamado();
-            this.CarregaCliente("SELECT * FROM Cadastro");
-            
-        
+
+        FecharChamado();
+        this.CarregaCliente("SELECT * FROM Cadastro");
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       
-            AbrirChamado();
-            this.CarregaCliente("SELECT * FROM Cadastro");
-            
-        
+
+        AbrirChamado();
+        this.CarregaCliente("SELECT * FROM Cadastro");
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jBtnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEnviarActionPerformed
+        // TODO add your handling code here:
+        Enviar();
+        this.CarregaCliente("SELECT * FROM Cx'adastro");
+
+    }//GEN-LAST:event_jBtnEnviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,6 +364,7 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnEnviar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
