@@ -38,6 +38,7 @@ public class Cliente extends javax.swing.JFrame {
 
         jBtnCRegistro.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jBtnCRegistro.setText("Cadastrar Registro");
+        jBtnCRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnCRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnCRegistroActionPerformed(evt);
@@ -46,6 +47,7 @@ public class Cliente extends javax.swing.JFrame {
 
         jBtnVoltar.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jBtnVoltar.setText("Voltar");
+        jBtnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnVoltarActionPerformed(evt);

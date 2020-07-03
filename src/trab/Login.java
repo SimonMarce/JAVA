@@ -57,6 +57,7 @@ public class Login extends javax.swing.JFrame {
         jBtnEntrar.setBackground(new java.awt.Color(255, 255, 255));
         jBtnEntrar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jBtnEntrar.setText("Entrar");
+        jBtnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnEntrarActionPerformed(evt);
@@ -87,6 +88,7 @@ public class Login extends javax.swing.JFrame {
         jBtnVoltarAmbi.setBackground(new java.awt.Color(255, 255, 255));
         jBtnVoltarAmbi.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jBtnVoltarAmbi.setText("Voltar");
+        jBtnVoltarAmbi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnVoltarAmbi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnVoltarAmbiActionPerformed(evt);

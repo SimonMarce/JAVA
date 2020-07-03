@@ -63,6 +63,7 @@ public class Admin extends javax.swing.JFrame {
 
         jBtnVoltar.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jBtnVoltar.setText("Voltar");
+        jBtnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnVoltarActionPerformed(evt);
@@ -71,6 +72,7 @@ public class Admin extends javax.swing.JFrame {
 
         jBtnVisualizar.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jBtnVisualizar.setText("Visualizar Registros");
+        jBtnVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnVisualizarActionPerformed(evt);

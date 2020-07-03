@@ -118,12 +118,14 @@ public class CadastroRegistro extends javax.swing.JFrame {
         jSelectTopicoAjuda = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro De Chamado");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 25)); // NOI18N
         jLabel1.setText("Nome Completo :");
 
         jBtnCadastrarChamado.setFont(new java.awt.Font("Arial", 0, 25)); // NOI18N
         jBtnCadastrarChamado.setText("Cadastrar");
+        jBtnCadastrarChamado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnCadastrarChamado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnCadastrarChamadoActionPerformed(evt);
@@ -151,16 +153,18 @@ public class CadastroRegistro extends javax.swing.JFrame {
 
         jBtnVoltarAmbi.setFont(new java.awt.Font("Arial", 0, 25)); // NOI18N
         jBtnVoltarAmbi.setText("Voltar");
+        jBtnVoltarAmbi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnVoltarAmbi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnVoltarAmbiActionPerformed(evt);
             }
         });
 
-        ImgCadastro.setIcon(new javax.swing.ImageIcon("C:\\Users\\irvin\\OneDrive\\Área de Trabalho\\TrabDev2\\img\\cadastro.png")); // NOI18N
+        ImgCadastro.setIcon(new javax.swing.ImageIcon("C:\\Users\\irvin\\OneDrive\\Área de Trabalho\\Mini Projetos\\TrabDev2\\img\\cadastro.png")); // NOI18N
 
         jSelectTopicoAjuda.setFont(new java.awt.Font("Arial", 0, 25)); // NOI18N
         jSelectTopicoAjuda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecione um Tópico de ajuda-", "Cobrança", "Ligações", "Lorem inpsun Dolor", "Lorem inpsun Dolor", " " }));
+        jSelectTopicoAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jSelectTopicoAjuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSelectTopicoAjudaActionPerformed(evt);

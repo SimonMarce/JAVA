@@ -40,6 +40,7 @@ public class Ambi extends javax.swing.JFrame {
         jBtnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Área Ambiente");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -73,6 +74,7 @@ public class Ambi extends javax.swing.JFrame {
 
         jBtnCadastro.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jBtnCadastro.setText("Cadastre-se");
+        jBtnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnCadastroActionPerformed(evt);
@@ -81,6 +83,7 @@ public class Ambi extends javax.swing.JFrame {
 
         jBtnLogin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jBtnLogin.setText("Login");
+        jBtnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnLoginActionPerformed(evt);
